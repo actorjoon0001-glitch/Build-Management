@@ -660,6 +660,17 @@
     }
   });
 
-  // ---------- 시작 ----------
-  navigate("dashboard");
+  // ---------- 잠금(로그아웃) 버튼 ----------
+  var lockBtn = document.getElementById("btn-lock");
+  if (lockBtn) lockBtn.addEventListener("click", function () {
+    if (window.SeumAuth) window.SeumAuth.lock();
+  });
+
+  // ---------- 시작 (관리자 인증 이후) ----------
+  window.SeumApp = { __started: false, start: function () { navigate("dashboard"); } };
+  if (!window.SeumAuth || window.SeumAuth.isAuthed()) {
+    window.SeumApp.__started = true;
+    window.SeumApp.start();
+  }
+  // 미인증 시: auth.js가 잠금 화면을 표시하고, 입장 성공 시 start()를 호출합니다.
 })();
