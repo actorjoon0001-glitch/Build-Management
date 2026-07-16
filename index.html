@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>시공OS · 세움 통합 플랫폼</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%232563eb'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'%3E세%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- 사이드바 -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">세움</div>
+        <div class="brand-text">
+          <strong>시공OS</strong>
+          <span>통합 플랫폼</span>
+        </div>
+      </div>
+      <nav class="nav" id="nav">
+        <button class="nav-item" data-view="dashboard"><span class="ic">📊</span> 대시보드</button>
+        <button class="nav-item" data-view="sites"><span class="ic">🏗️</span> 현장 현황</button>
+        <button class="nav-item" data-view="tasks"><span class="ic">✅</span> 작업 · 체크리스트</button>
+        <button class="nav-item" data-view="materials"><span class="ic">📦</span> 자재 물량</button>
+        <button class="nav-item" data-view="process"><span class="ic">📋</span> 표준 공정표</button>
+        <button class="nav-item" data-view="import"><span class="ic">📥</span> 엑셀 불러오기</button>
+      </nav>
+      <div class="sidebar-foot">
+        <button id="btn-reset" class="link-btn">샘플 데이터로 초기화</button>
+        <span class="ver">v0.1 프로토타입</span>
+      </div>
+    </aside>
+
+    <!-- 본문 -->
+    <main class="main">
+      <header class="topbar">
+        <h1 id="page-title">대시보드</h1>
+        <div class="topbar-right">
+          <span id="last-updated" class="muted"></span>
+        </div>
+      </header>
+      <section id="view" class="view"></section>
+    </main>
+  </div>
+
+  <!-- 모달 -->
+  <div id="modal-backdrop" class="modal-backdrop hidden">
+    <div class="modal" id="modal"></div>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
