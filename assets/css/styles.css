@@ -210,6 +210,49 @@ textarea.paste-area { width: 100%; min-height: 180px; font-family: ui-monospace,
 .empty { text-align: center; padding: 60px 20px; color: var(--muted); }
 .empty .big { font-size: 40px; margin-bottom: 12px; }
 
+/* ---------- 관리자 잠금 화면 ---------- */
+#lock-screen {
+  position: fixed; inset: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  padding: 20px;
+}
+.lock-card {
+  background: var(--surface); border-radius: 16px; width: 100%; max-width: 380px;
+  padding: 32px 28px; box-shadow: 0 20px 60px rgba(0, 0, 0, .4); text-align: center;
+}
+.lock-card.shake { animation: shake .35s; }
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+.lock-brand { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 22px; }
+.lock-mark {
+  width: 44px; height: 44px; border-radius: 11px;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #fff; font-weight: 800; font-size: 15px;
+  display: flex; align-items: center; justify-content: center;
+}
+.lock-brand > div:last-child { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2; }
+.lock-brand strong { font-size: 18px; color: var(--text); }
+.lock-brand span { font-size: 11px; color: var(--muted); }
+.lock-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+.lock-desc { font-size: 13px; color: var(--text-2); margin-bottom: 22px; line-height: 1.5; }
+#lock-form { display: flex; flex-direction: column; gap: 10px; }
+#lock-pw {
+  font-size: 16px; text-align: center; letter-spacing: 4px;
+  padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px;
+}
+#lock-pw:focus { outline: 2px solid var(--primary-weak); border-color: var(--primary); }
+.lock-btn {
+  font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer;
+  background: var(--primary); color: #fff; border: 0; border-radius: 10px; padding: 12px;
+  transition: background .15s;
+}
+.lock-btn:hover { background: var(--primary-dark); }
+.lock-err { color: var(--red); font-size: 13px; margin-top: 12px; min-height: 18px; }
+
 /* ---------- 반응형 ---------- */
 @media (max-width: 900px) {
   .stat-grid { grid-template-columns: repeat(2, 1fr); }
